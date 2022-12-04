@@ -9,20 +9,20 @@ import {
     ResponsiveContainer,
 } from 'recharts'
 
-const Chart = () => {
+const Chart = ({ aspect, title }) => {
     const data = [
-        {name: 'January', Total: 1200},
-        {name: 'February', Total: 2100},
-        {name: 'March', Total: 800},
-        {name: 'April', Total: 2800},
-        {name: 'May', Total: 2500},
-        {name: 'June', Total: 2500},
-        {name: 'July', Total: 500},
+        { name: 'January', Total: 1200 },
+        { name: 'February', Total: 2100 },
+        { name: 'March', Total: 800 },
+        { name: 'April', Total: 2800 },
+        { name: 'May', Total: 2500 },
+        { name: 'June', Total: 2500 },
+        { name: 'July', Total: 500 },
     ]
     return (
         <div className='chart'>
-          <div className="title">Last 6 months (Revenue)</div>
-            <ResponsiveContainer width='100%' aspect={2/1}>
+            <div className='title'>{title}</div>
+            <ResponsiveContainer width='100%' aspect={aspect}>
                 <AreaChart
                     width={730}
                     height={250}
@@ -35,9 +35,9 @@ const Chart = () => {
                             <stop offset='95%' stopColor='#8884d8' stopOpacity={0} />
                         </linearGradient>
                     </defs>
-                    <XAxis dataKey='name' stroke='gray'/>
+                    <XAxis dataKey='name' stroke='gray' />
                     <YAxis />
-                    <CartesianGrid strokeDasharray='3 3' className='chartGrid'/>
+                    <CartesianGrid strokeDasharray='3 3' className='chartGrid' />
                     <Tooltip />
                     <Area
                         type='monotone'
