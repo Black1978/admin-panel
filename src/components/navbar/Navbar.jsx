@@ -6,8 +6,11 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined'
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined'
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined'
+import { useContext } from 'react'
+import { DarkModeContext } from '../../context/darkModeContext'
 
 const Navbar = () => {
+    const { dispatch } = useContext(DarkModeContext)
     return (
         <div className='navbar'>
             <div className='wrapper'>
@@ -16,29 +19,36 @@ const Navbar = () => {
                     <SearchOutlinedIcon />
                 </div>
                 <div className='items'>
-                <div className='item'>
-                        <LanguageOutlinedIcon className='icon'/>
+                    <div className='item'>
+                        <LanguageOutlinedIcon className='icon' />
                         English
                     </div>
                     <div className='item'>
-                        <DarkModeOutlinedIcon className='icon'/>
+                        <DarkModeOutlinedIcon
+                            className='icon'
+                            onClick={() => dispatch({ type: 'TOGGLE' })}
+                        />
                     </div>
                     <div className='item'>
-                        <FullscreenExitOutlinedIcon className='icon'/>
+                        <FullscreenExitOutlinedIcon className='icon' />
                     </div>
                     <div className='item'>
-                        <NotificationsNoneOutlinedIcon className='icon'/>
-                        <div className="counter">1</div>
+                        <NotificationsNoneOutlinedIcon className='icon' />
+                        <div className='counter'>1</div>
                     </div>
                     <div className='item'>
-                        <ChatBubbleOutlineOutlinedIcon className='icon'/>
-                        <div className="counter">2</div>
+                        <ChatBubbleOutlineOutlinedIcon className='icon' />
+                        <div className='counter'>2</div>
                     </div>
                     <div className='item'>
                         <ListOutlinedIcon />
                     </div>
                     <div className='item'>
-                        <img src="https://picjumbo.com/wp-content/uploads/young-woman-welcoming-a-new-day-right-after-morning-shower-free-photo-1080x720.jpg" alt="" className='avatar'/>
+                        <img
+                            src='https://picjumbo.com/wp-content/uploads/young-woman-welcoming-a-new-day-right-after-morning-shower-free-photo-1080x720.jpg'
+                            alt=''
+                            className='avatar'
+                        />
                     </div>
                 </div>
             </div>
